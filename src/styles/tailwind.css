@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /*------Color variables------*/
+    --black_900: #000000;
+    --black_900_0c: #0000000c;
+    --black_900_7f: #0000007f;
+    --black_900_cc: #000000cc;
+    --blue_gray_100: #d7d7d7;
+    --blue_gray_100_01: #d9d9d9;
+    --blue_gray_100_02: #d4d4d4;
+    --blue_gray_200: #aab6c5;
+    --blue_gray_900: #2b3034;
+    --blue_gray_900_66: #2b303466;
+    --gray_100: #f1f3f9;
+    --gray_50: #fcfcfc;
+    --gray_500_66: #97979766;
+    --gray_50_01: #f7f9fd;
+    --gray_900: #202224;
+    --gray_900_cc: #202224cc;
+    --orange_a200: #ff9a52;
+    --teal_a700: #00b69b;
+    --white_a700: #ffffff;
+
+    /*------Shadow variables------*/
+    --shadow-xs: 6px 6px 54px 0 #0000000c;
+
+    /*------Border radius variables------*/
+    --radius-xs: 4px;
+    --radius-sm: 5px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+
+    /*------Spacing variables------*/
+    --space-xs: 16px;
+    --space-sm: 20px;
+    --space-md: 30px;
+  }
+  [type="text"],
+  input:where(:not([type])),
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    appearance: none;
+    background-color: transparent;
+    border-color: unset;
+    border-width: 0;
+    border-radius: unset;
+    padding: unset;
+    font-size: unset;
+    line-height: unset;
+  }
+
+  /* Override default focus colors for tailwindcss-forms https://github.com/tailwindlabs/tailwindcss-forms */
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="search"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    --tw-ring-color: transparent;
+    border-color: transparent;
+  }
+  [type="radio"]:focus,
+  [type="checkbox"]:focus {
+    --tw-ring-color: transparent;
+  }
+}

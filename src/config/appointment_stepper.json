@@ -1,0 +1,79 @@
+{
+    "Specialty": [
+        {
+            "key": "DocSpeId",
+            "type": "keyid",
+            "UIComponentTitle": "Specialization",
+            "value": null
+        }
+    ],
+    "Doctor": [
+         {
+            "key": "DoctorId",
+            "type": "keyid",
+            "UIComponentTitle": "Choose Doctor",
+            "value": null
+        }
+    ],
+    "Availability" : [
+        {
+            "key": "AvailabilityId",
+            "type": "keyid",
+            "UIComponentTitle": "Choose Availability",
+            "value": null
+        },
+        {
+            "key": "SlotId",
+            "source": "Model.Slot",
+            "value": null
+        }
+    ],
+    
+    "Appointment": [
+        {
+            "key": "AppointmentId",
+            "type": "keyid",
+            "UIComponentTitle": "Appointment"
+        }
+        ,{
+        "key": "Date",
+        "label": "Date",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+        },
+        {
+        "key": "StartTime",
+        "label": "Start Time",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+        },
+        {
+        "key": "EndTime",
+        "label": "EndTime",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+        },
+        {
+        "key": "AppointmentBookedBy",
+        "label": "Appointment Booked By",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+        },
+        {
+        "key": "AppointmentConsultedDoctor",
+        "label": "Appointment Consulted Doctor",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+        }     
+    ]
+}

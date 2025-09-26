@@ -1,0 +1,318 @@
+{
+
+"appointment": [
+    {
+        "key": "AppointmentId",
+        "type": "keyid",
+        "UIComponentTitle": "Appointment"
+    }
+    
+
+        ,{
+            "key": "AppointmentDoctor",
+            "uicomponent": "doctordoctor",
+            "nocreate": true
+        }
+
+        ,{
+            "key": "AppointmentReview",
+            "uicomponent": "reviewreview",
+            "nocreate": true
+        }
+
+        ,{
+            "key": "AppointmentPrescription",
+            "uicomponent": "prescriptionprescription",
+            "nocreate": true
+        }
+    ,{
+        "key": "Date",
+        "label": "Date",
+        "type": "date",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Notes",
+        "label": "Notes",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "IsScheduled",
+        "label": "IsScheduled",
+        "type": "check",
+        "editable": true,
+        "validators": [
+             "isTruthy"
+        ]
+                            }
+    ,{
+        "key": "IsCancelled",
+        "label": "IsCancelled",
+        "type": "check",
+        "editable": true,
+        "validators": [
+             "isTruthy"
+        ]
+                            }
+    ,{
+        "key": "Time",
+        "label": "Time",
+        "type": "time",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Status",
+        "label": "Status",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "ReferToOtherDoctor",
+        "label": "ReferToOtherDoctor",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Complaints",
+        "label": "Complaints",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "AppointmentPatient",
+        "label": "Patient",
+        "type": "dropdown",
+        "valueId": "PatientId",
+        "nameId": "FullName",
+        "contentId": "FullName",
+        "source": "Patient",
+        "uicomponent": "patientpatient",
+        "create": true,
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+]
+
+,"patientpatient": [
+    {
+        "key": "PatientId",
+        "type": "keyid",
+        "UIComponentTitle": "Patient"
+    }
+    ,{
+        "key": "FullName",
+        "label": "FullName",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Email",
+        "label": "Email",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "PhoneNumber",
+        "label": "PhoneNumber",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isNumber"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Gender",
+        "label": "Gender",
+        "type": "dropdown",
+        "valueId": "Value",
+        "nameId": "Name",
+        "contentId": "Name",
+        "source": "Gender",
+        "enum": true,
+        "editable": true,
+        "validators": [
+             "isNumber"
+        ]
+                            }
+    ,{
+        "key": "DateOfBirth",
+        "label": "DateOfBirth",
+        "type": "date",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "EmergencyContact",
+        "label": "EmergencyContact",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isNumber"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Address",
+        "label": "Address",
+        "type": "dropdown",
+        "valueId": "Value",
+        "nameId": "Name",
+        "contentId": "Name",
+        "source": "Address",
+        "enum": true,
+        "editable": true,
+        "validators": [
+             "isNumber"
+        ]
+                            }
+    ,{
+        "key": "MedicalInformation",
+        "label": "MedicalInformation",
+        "type": "dropdown",
+        "valueId": "Value",
+        "nameId": "Name",
+        "contentId": "Name",
+        "source": "MedicalInformation",
+        "enum": true,
+        "editable": true,
+        "validators": [
+             "isNumber"
+        ]
+                            }
+]
+
+,"doctordoctor": [
+    {
+        "key": "DocId",
+        "type": "keyid",
+        "UIComponentTitle": "Doctor"
+    }
+    ,{
+        "key": "Specialty",
+        "label": "Specialty",
+        "type": "dropdown",
+        "valueId": "Value",
+        "nameId": "Name",
+        "contentId": "Name",
+        "source": "DoctorSpecialty",
+        "enum": true,
+        "editable": true,
+        "validators": [
+             "isNumber"
+        ]
+                            }
+    ,{
+        "key": "Experience",
+        "label": "Experience",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "About",
+        "label": "About",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "RegistrationNumber",
+        "label": "RegistrationNumber",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isNumber"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "IsApprovedByClinic",
+        "label": "IsApprovedByClinic",
+        "type": "check",
+        "editable": true,
+        "validators": [
+             "isTruthy"
+        ]
+                            }
+]
+
+,"reviewreview": [
+    {
+        "key": "ReviewId",
+        "type": "keyid",
+        "UIComponentTitle": "Review"
+    }
+    ,{
+        "key": "Rating",
+        "label": "Rating",
+        "type": "text",
+        "editable": true,
+        "validators": [
+             "isNumber"
+, "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Feedback",
+        "label": "Feedback",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+]
+
+,"prescriptionprescription": [
+    {
+        "key": "PrescriptionId",
+        "type": "keyid",
+        "UIComponentTitle": "Prescription"
+    }
+    ,{
+        "key": "NextVisit",
+        "label": "NextVisit",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Symptoms",
+        "label": "Symptoms",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Advice",
+        "label": "Advice",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+]
+}

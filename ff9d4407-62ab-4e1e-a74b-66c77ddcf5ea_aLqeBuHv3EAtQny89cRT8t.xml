@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Model">
+            <EntityType HasStream="false" Name="PrescribedItem">
+                <Key>
+                    <PropertyRef Name="PrescribedItemId"/>
+                </Key>
+                <Property Name="PrescribedItemId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="ItemType" Type="Model.PrescribedItemType" isUnique="false"/>
+                <Property Name="Name" Type="Edm.String" isUnique="false"/>
+                <Property Name="Dosage" Type="Edm.String" isUnique="false"/>
+                <Property Name="NumberOfTimesInADay" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="BeforeOrAfterFood" Type="Model.BeforeOrAfter" isUnique="false"/>
+                <Property Name="Days" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="IsSOS" Type="Edm.Boolean" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Qualification">
+                <Key>
+                    <PropertyRef Name="QualificationId"/>
+                </Key>
+                <Property Name="QualificationId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Degree" Type="Edm.String" isUnique="false"/>
+                <Property Name="University" Type="Edm.String" isUnique="false"/>
+                <Property Name="Year" Type="Edm.Int32" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="true" Name="Document">
+                <Key>
+                    <PropertyRef Name="DocId"/>
+                </Key>
+                <Property Name="DocId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="FileName" Type="Edm.String" isUnique="false"/>
+                <Property Name="FileType" Type="Edm.String" isUnique="false"/>
+                <Property Name="Date" Type="Edm.Date" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="LabTest">
+                <Key>
+                    <PropertyRef Name="LabTestId"/>
+                </Key>
+                <Property Name="LabTestId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="TestName" Type="Edm.String" isUnique="false"/>
+                <Property Name="Instructions" Type="Edm.String" isUnique="false"/>
+                <Property Name="LabName" Type="Edm.String" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Doctor">
+                <Key>
+                    <PropertyRef Name="DocId"/>
+                </Key>
+                <Property Name="DocId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Specialty" Type="Model.DoctorSpecialty" isUnique="false"/>
+                <Property Name="Experience" Type="Edm.String" isUnique="false"/>
+                <Property Name="About" Type="Edm.String" isUnique="false"/>
+                <Property Name="RegistrationNumber" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="IsApprovedByClinic" Type="Edm.Boolean" isUnique="false"/>
+                <NavigationProperty Name="Qualifications" Type="Collection(Model.Qualification)"/>
+                <NavigationProperty Name="Appointments" Type="Collection(Model.Appointment)"/>
+                <NavigationProperty Name="ProfilePicture" Type="Model.Document"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Patient">
+                <Key>
+                    <PropertyRef Name="PatientId"/>
+                </Key>
+                <Property Name="PatientId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="FullName" Type="Edm.String" isUnique="false"/>
+                <Property Name="Email" Type="Edm.String" isUnique="false"/>
+                <Property Name="PhoneNumber" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Gender" Type="Model.Gender" isUnique="false"/>
+                <Property Name="DateOfBirth" Type="Edm.Date" isUnique="false"/>
+                <Property Name="EmergencyContact" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Address" Type="Model.Address" isUnique="false"/>
+                <Property Name="MedicalInformation" Type="Model.MedicalInformation" isUnique="false"/>
+                <NavigationProperty Name="ProfilePicture" Type="Model.Document"/>
+                <NavigationProperty Name="Appointments" Type="Collection(Model.Appointment)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Review">
+                <Key>
+                    <PropertyRef Name="ReviewId"/>
+                </Key>
+                <Property Name="ReviewId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Rating" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="Feedback" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Appointment" Type="Model.Appointment"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Prescription">
+                <Key>
+                    <PropertyRef Name="PrescriptionId"/>
+                </Key>
+                <Property Name="PrescriptionId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="NextVisit" Type="Edm.String" isUnique="false"/>
+                <Property Name="Symptoms" Type="Edm.String" isUnique="false"/>
+                <Property Name="Advice" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Items" Type="Collection(Model.PrescribedItem)"/>
+                <NavigationProperty Name="LabTest" Type="Collection(Model.LabTest)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Clinic">
+                <Key>
+                    <PropertyRef Name="ClinicId"/>
+                </Key>
+                <Property Name="ClinicId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="ClinicName" Type="Edm.String" isUnique="false"/>
+                <Property Name="Address" Type="Model.Address" isUnique="false"/>
+                <NavigationProperty Name="Doctors" Type="Collection(Model.Doctor)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Appointment">
+                <Key>
+                    <PropertyRef Name="AppointmentId"/>
+                </Key>
+                <Property Name="AppointmentId" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Date" Type="Edm.Date" isUnique="false"/>
+                <Property Name="Notes" Type="Edm.String" isUnique="false"/>
+                <Property Name="IsScheduled" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="IsCancelled" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="Time" Type="Edm.TimeOfDay" isUnique="false"/>
+                <Property Name="Status" Type="Edm.String" isUnique="false"/>
+                <Property Name="ReferToOtherDoctor" Type="Edm.String" isUnique="false"/>
+                <Property Name="Complaints" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Patient" Type="Model.Patient"/>
+                <NavigationProperty Name="Doctor" Type="Model.Doctor"/>
+                <NavigationProperty Name="Review" Type="Model.Review"/>
+                <NavigationProperty Name="Prescription" Type="Model.Prescription"/>
+                <NavigationProperty Name="Documents" Type="Collection(Model.Document)"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="PrescribedItems" EntityType="Model.PrescribedItem"/>
+                <EntitySet Name="Qualifications" EntityType="Model.Qualification"/>
+                <EntitySet Name="Documents" EntityType="Model.Document"/>
+                <EntitySet Name="LabTests" EntityType="Model.LabTest"/>
+                <EntitySet Name="Doctors" EntityType="Model.Doctor">
+                    <NavigationPropertyBinding Path="Qualifications" Target="Qualifications"/>
+                    <NavigationPropertyBinding Path="Appointments" Target="Appointments"/>
+                    <NavigationPropertyBinding Path="ProfilePicture" Target="Documents"/>
+                </EntitySet>
+                <EntitySet Name="Patients" EntityType="Model.Patient">
+                    <NavigationPropertyBinding Path="ProfilePicture" Target="Documents"/>
+                    <NavigationPropertyBinding Path="Appointments" Target="Appointments"/>
+                </EntitySet>
+                <EntitySet Name="Reviews" EntityType="Model.Review">
+                    <NavigationPropertyBinding Path="Appointment" Target="Appointments"/>
+                </EntitySet>
+                <EntitySet Name="Prescriptions" EntityType="Model.Prescription">
+                    <NavigationPropertyBinding Path="Items" Target="PrescribedItems"/>
+                    <NavigationPropertyBinding Path="LabTest" Target="LabTests"/>
+                </EntitySet>
+                <EntitySet Name="Clinics" EntityType="Model.Clinic">
+                    <NavigationPropertyBinding Path="Doctors" Target="Doctors"/>
+                </EntitySet>
+                <EntitySet Name="Appointments" EntityType="Model.Appointment">
+                    <NavigationPropertyBinding Path="Patient" Target="Patients"/>
+                    <NavigationPropertyBinding Path="Doctor" Target="Doctors"/>
+                    <NavigationPropertyBinding Path="Review" Target="Reviews"/>
+                    <NavigationPropertyBinding Path="Prescription" Target="Prescriptions"/>
+                    <NavigationPropertyBinding Path="Documents" Target="Documents"/>
+                </EntitySet>
+            </EntityContainer>
+            <ComplexType Name="MedicalInformation">
+                <Property Name="KnownMedicalConditions" Type="Edm.String" isUnique="false"/>
+                <Property Name="Allergies" Type="Edm.String" isUnique="false"/>
+                <Property Name="Medications" Type="Edm.String" isUnique="false"/>
+                <Property Name="FamilyMedicalHistory" Type="Edm.String" isUnique="false"/>
+            </ComplexType>
+            <ComplexType Name="Address">
+                <Property Name="Address" Type="Edm.String" isUnique="false"/>
+                <Property Name="City" Type="Edm.String" isUnique="false"/>
+                <Property Name="State" Type="Edm.String" isUnique="false"/>
+                <Property Name="Country" Type="Edm.String" isUnique="false"/>
+                <Property Name="PostalCode" Type="Edm.Int64" isUnique="false"/>
+            </ComplexType>
+            <EnumType Name="Gender">
+                <Member Name="Male" Value="0"/>
+                <Member Name="Female" Value="1"/>
+                <Member Name="Others" Value="2"/>
+            </EnumType>
+            <EnumType Name="PrescribedItemType">
+                <Member Name="Tablet" Value="0"/>
+                <Member Name="Capsule" Value="1"/>
+                <Member Name="Gel" Value="2"/>
+                <Member Name="Ointment" Value="3"/>
+                <Member Name="Others" Value="4"/>
+            </EnumType>
+            <EnumType Name="DoctorSpecialty">
+                <Member Name="GeneralPhysician" Value="0"/>
+                <Member Name="Pediatrics" Value="1"/>
+                <Member Name="Dermatology" Value="2"/>
+                <Member Name="Psychiatry" Value="3"/>
+                <Member Name="psychology" Value="4"/>
+                <Member Name="Gastroenterology" Value="5"/>
+                <Member Name="Cardiology" Value="6"/>
+                <Member Name="Neurology" Value="7"/>
+                <Member Name="Gynecology" Value="8"/>
+                <Member Name="Urology" Value="9"/>
+                <Member Name="Orthopedics" Value="10"/>
+                <Member Name="Endocrinology" Value="11"/>
+                <Member Name="Pulmonology" Value="12"/>
+                <Member Name="ENT" Value="13"/>
+                <Member Name="Ophthalmology" Value="14"/>
+                <Member Name="Dentistry" Value="15"/>
+                <Member Name="Therapist" Value="16"/>
+                <Member Name="Addiction" Value="17"/>
+                <Member Name="SleepSpecialist" Value="18"/>
+                <Member Name="Nutritionist" Value="19"/>
+                <Member Name="FitnessConsultant" Value="20"/>
+                <Member Name="ChronicPainSpecialist" Value="21"/>
+            </EnumType>
+            <EnumType Name="BeforeOrAfter">
+                <Member Name="Before" Value="0"/>
+                <Member Name="After" Value="1"/>
+            </EnumType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

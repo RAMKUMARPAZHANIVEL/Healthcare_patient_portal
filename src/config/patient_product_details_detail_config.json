@@ -1,0 +1,163 @@
+{
+
+"patient": [
+    {
+        "key": "PatientId",
+        "type": "keyid",
+        "UIComponentTitle": "Patient"
+    }
+        ,{
+        "key": "FullName",
+        "label": "Full Name",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Email",
+        "label": "Email",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+                                 ,{
+        "key": "Age",
+        "label": "Age",
+        "type": "text",
+        "editable": true,
+        "validators": [
+            "isNumber"
+        ]
+                            }
+    ,{
+        "key": "PhoneNumber",
+        "label": "Phone Number",
+        "type": "text",
+        "editable": true,
+        "validators": [
+            "isPositive"
+        ]
+                            }
+    ,{
+        "key": "Gender",
+        "label": "Gender",
+        "type": "dropdown",
+        "valueId": "Value",
+        "nameId": "Name",
+        "contentId": "Name",
+        "source": "Gender",
+        "enum": true,
+        "editable": true,
+        "validators": [
+             "isNumber"
+        ]
+                            }
+    ,{
+        "key": "DateOfBirth",
+        "label": "Date Of Birth",
+        "type": "date",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "EmergencyContact",
+        "label": "Emergency Contact",
+        "type": "text",
+        "editable": true,
+        "validators": [
+            "isPositive"
+        ]
+                            }
+    ,{
+        "key": "ProfilePicture",
+        "label": "Profile Picture",
+        "type": "doc",
+        "accept": ".JPG,.JPEG,.PNG,.PDF,.TXT,.DOC,.DOCX,.XLS,.XLSX",
+        "width": "30%",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+],
+"MedicalInformation": [
+      {
+        "key": "Allergies",
+        "label": "Allergies",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "FamilyMedicalHistory",
+        "label": "Family Medical History",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Medications",
+        "label": "Medications",
+        "type": "text",
+        "editable": true,
+        "validators": [
+        ]
+                            }
+    ,{
+        "key": "KnownMedicalConditions",
+        "label": "Known Medical Conditions",
+        "type": "text",
+        "editable": true,
+        "validators": [
+        ]
+                            }
+],
+"Address": [
+      {
+        "key": "Country",
+        "label": "Country",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "Address",
+        "label": "Address",
+        "type": "text",
+        "editable": true,
+        "validators": [
+                    ]
+                            }
+    ,{
+        "key": "City",
+        "label": "City",
+        "type": "text",
+        "editable": true,
+        "validators": [
+        ]
+                            }
+    ,{
+        "key": "PostalCode",
+        "label": "Postal Code",
+        "type": "text",
+        "editable": true,
+        "validators": [
+              "isNumber"
+            , "isPositive"
+        ]
+                            }
+     ,{
+        "key": "State",
+        "label": "State",
+        "type": "text",
+        "editable": true,
+        "validators": [
+        ]
+                            }
+]
+}
